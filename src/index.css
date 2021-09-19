@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    box-sizing: border-box;
+}
+
+.overflow-list {
+    scrollbar-width: thin;
+    width: calc(100% + 30px);
+    margin-left: -30px;
+}
+.move-enter {
+    opacity: 0.01;
+    transform: translate(-40px, 0)
+}
+
+.move-enter-active {
+    opacity: 1;
+    transform: translate(0, 0);
+    transition: all 500ms ease-in;
+}
+
+.move-exit {
+    opacity: 1;
+    transform: translate(0, 0)
+}
+
+.move-exit-active {
+    opacity: 0.01;
+    transform: translate(40px, 0);
+    transition: all 500ms ease-in;
+}
+
+.add-todo {
+    height: 0;
+    overflow: hidden;
+}
+
+.slide-up-enter {
+    height: 0;
+}
+
+.add-todo-form {
+    max-width: 250px;
+}
+
+.slide-up-enter-active {
+    height: 360px;
+    transition-property: height;
+    transition-duration: .3s;
+    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+
+.ant-picker {
+    width: 100%;
+}
+
+.ant-form-item-explain {
+    position: absolute;
+    top: 100%;
+}
+
+.slide-up-enter-done {
+    overflow-y: hidden;
+    height: 360px; /* approximate max height */
+    transition-property: height;
+    transition-duration: .3s;
+    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+
+.slide-up-exit {
+    height: 360px;
+}
+
+.slide-up-exit-active {
+    height: 0;
+    transition: height 200ms ease-out;
+}
+
+.draggable-item {
+    cursor: move; /* fallback if grab cursor is unsupported */
+    cursor: grab;
+    position: absolute;
+    left: 0px;
+    top: 50%;
+    transform: translateY(-50%) scale(0);
+}
+
+.todo-item {
+    padding-left: 30px !important;
+}
+
+.todo-item-wrapper {
+    display: block;
+    width: 100%;
+}
+
+.ant-row.ant-form-item {
+    margin-bottom: 15px;
+}
+
+.todo-main {
+    border-bottom: 1px solid #eaeaea;
+}
+
+.todo-item:not(:last-child) > .todo-item-wrapper {
+    border-bottom: 1px solid #eaeaea;
+}
+
+.todo-item:hover .draggable-item {
+    transform: translateY(-50%) scale(1);
+    transition: transform .2s;
+    z-index: 998;
+}
+
+.list-wrapper {
+    overflow: visible;
+}
